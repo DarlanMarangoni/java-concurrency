@@ -18,6 +18,11 @@ public class FirstSimpleBehavior extends AbstractBehavior<String> {
 
     @Override
     public Receive<String> createReceive() {
-        return null;
+        return newReceiveBuilder()
+                .onAnyMessage(message -> {
+                    System.out.println("I received the message: " + message);
+                    return this;
+                })
+                .build();
     }
 }
