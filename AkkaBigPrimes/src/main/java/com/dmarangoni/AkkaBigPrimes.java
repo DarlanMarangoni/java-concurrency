@@ -1,7 +1,14 @@
 package com.dmarangoni;
 
+import akka.actor.typed.ActorSystem;
+
 public class AkkaBigPrimes {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        ActorSystem<String> actorSystem = ActorSystem.create(FirstSimpleBehavior.create(), "FirstActorSystem");
+
+        actorSystem.tell("Hello World");
+        actorSystem.tell("Other message");
+
     }
 }
