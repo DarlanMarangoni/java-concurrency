@@ -8,9 +8,9 @@ public class CurrentStatus implements Runnable {
 
     @Override
     public void run() {
-        while (results.getPrimes().size() < MultiThreadBigPrimes.THREAD_SIZE) {
-            System.out.println("Got " + results.getPrimes().size() + " so far...");
-            results.getPrimes().forEach(System.out::println);
+        while (results.getSize() < MultiThreadBigPrimes.THREAD_SIZE) {
+            System.out.println("Got " + results.getSize() + " so far...");
+            results.print();
             try {
                 Thread.sleep(1000L);
             } catch (InterruptedException e) {

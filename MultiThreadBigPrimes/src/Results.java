@@ -10,7 +10,22 @@ public class Results {
         this.primes = new TreeSet<>();
     }
 
-    public SortedSet<BigInteger> getPrimes() {
-        return primes;
-    }
+   public int getSize() {
+        synchronized (this) {
+            return this.primes.size();
+        }
+   }
+
+   public void addPrime(BigInteger prime) {
+        synchronized (this) {
+            this.primes.add(prime);
+        }
+   }
+
+   public void print() {
+        synchronized (this) {
+            primes.forEach(System.out::println);
+        }
+   }
+
 }

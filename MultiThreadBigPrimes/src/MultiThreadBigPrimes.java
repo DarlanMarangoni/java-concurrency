@@ -27,7 +27,7 @@ public class MultiThreadBigPrimes {
             t.join();
         }
 
-        System.out.println(results.getPrimes());
+        results.print();
 
         System.out.println("Execution time: " + (System.currentTimeMillis() - start) + " ms.");
     }
